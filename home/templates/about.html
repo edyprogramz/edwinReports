@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} about {% endblock %}
+
+{% block content %}
+<div id="about-page-chapters">
+    <a href="#aboutid">ABOUT</a>
+    <a href="#policyid">PRIVACY POLICY</a>
+</div>
+<div id="about-page">
+    <div id="about">
+        <div id="aboutid"><h1>ABOUT</h1></div>
+        <p>{{about.about | safe}}</p>
+    </div>
+
+    <div id="privacy-policy">
+        <div id="policyid"><h1>PRIVACY POLICY</h1></div>
+        <p>{{ppolicy.ppolicy | safe}}</p>
+    </div>
+</div>
+{% endblock %}

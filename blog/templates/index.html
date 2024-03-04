@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div id="blog-page">
+
+
+
+
+    <div id="blog-section">
+        <div id="blog-section-left">           
+            {% if request.get_full_path %}
+                {% with request.build_absolute_uri as current_url %}
+                    <div id="socials">
+                        <!-- facebook  -->
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ current_url }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/facebook.png' %}" alt="facebook">
+                        </a>
+                        <br>
+                        <!-- twitter  -->
+                        <a href="https://twitter.com/intent/tweet?url={{ current_url }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/twitterx.png' %}" alt="twitter">
+                        </a>
+                        <br>
+                        <!-- telegram  -->
+                        <a href="https://t.me/share/url?url={{ current_url }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/telegram.png' %}" alt="telegram">
+                        </a>
+                        <br>
+                        <!-- reddit  -->
+                        <a href="https://reddit.com/submit?url={{ current_url }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/reddit.png' %}" alt="reddit">
+                        </a>
+                        <br>
+                        <!-- linkedin -->
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ current_url }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/linkedin.png' %}" alt="linkedin">
+                        </a>
+                        <br>
+                        <!-- whatsapp -->
+                        <a href="whatsapp://send?text={{ current_url }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/whatsapp.png' %}" alt="whatsapp">
+                        </a>
+                        <br>
+                        <!-- copy link  -->
+                        <button onclick="copyToClipboard('{{ current_url }}')">
+                            <img src="{% static 'images/copy.png' %}" alt="link">
+                        </button>
+
+                        <!-- JavaScript Function to Copy URL to Clipboard -->
+                        <script>
+                        function copyToClipboard(url) {
+                            const el = document.createElement('textarea');
+                            el.value = url;
+                            document.body.appendChild(el);
+                            el.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(el);
+                            alert('Link copied to clipboard');
+                        }
+                        </script>
+                        <br>
+                        <!-- to top  -->
+                        <a href="#section1">
+                            <img src="{% static 'images/top.png' %}" alt="link">
+                        </a>
+                        <br>                        
+                    </div>
+                {% endwith %}
+            {% endif %}
+            
+
+
+            <!-- <div id="ad2">
+                <img src="https://mydmi.imgix.net/cards/standard/Google_Ads_CARD.jpg?crop=entropy&fit=crop&fm=jpg&h=1200&ixlib=php-3.3.1&q=50&w=1600&s=2e757c189bdfa9a7833c503ce34266d8" alt="">
+            </div> -->
+
+
+        </div>
+        <div id="blog-content">
+            
+            {% if blog.image %}
+            <div id="blog-img">
+                <img src="{{blog.image.url}}" alt="{{blog.title}}">
+            </div>
+            {% endif %}
+
+            {% if blog.section1 %}
+            <div id="section1" class="sections">
+                {{blog.section1 | safe}}
+            </div>
+            {% endif %}
+
+            <!-- advertisement -->
+            {% if blog.ad %}
+            <i>advertisement-scroll-to-continue</i>
+            <div id="ad">
+                {{blog.ad | safe }}
+            </div> 
+            {% endif %} 
+            
+            {% if blog.section2 %}
+            <div id="section2" class="sections">
+                {{blog.section2 | safe}}
+            </div>
+            {% endif %}
+
+            <!-- advertisement -->
+            {% if blog.ad %}
+            <i>advertisement-scroll-to-continue</i>
+            <div id="ad">
+                {{blog.ad | safe }}
+            </div> 
+            {% endif %}  
+
+            {% if blog.section3 %}
+            <div id="section3" class="sections">
+                {{blog.section3 | safe}}
+            </div>
+            {% endif %}
+
+            <!-- advertisement -->
+            {% if blog.ad %}
+            <i>advertisement-scroll-to-continue</i>
+            <div id="ad">
+                {{blog.ad | safe }}
+            </div> 
+            {% endif %}  
+            
+            {% if blog.section4 %}
+            <div id="section4" class="sections">
+                {{blog.section4 | safe}}
+            </div>
+            {%endif%}
+        </div>
+        <div id="blog-recommendation">
+
+            {% if results %}
+                <!-- search results  -->
+                <p>SEARCH RESULTS</p>
+                <br>
+
+                {% for blog in results %}
+                    <div id="editors-section">
+                        <a href="{% url 'blog:blog_detail' blog.id %}">{{blog.title}}</a>
+                    </div>    
+                {% endfor %}
+                
+            {% else %}
+                <!-- editors choice  -->
+                <p>EDITOR'S CHOICE</p>
+                <br>
+                
+                {% for blog in blogs %}
+                    <div id="editors-section">
+                        <a href="{% url 'blog:blog_detail' blog.id %}">{{blog.title}}</a>
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+
+            
+
+            <!-- advertisement -->
+            {% if blog.ad_box %}
+            <div id="ad2">
+                {{blog.ad_box | safe }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+<!-- <div id="blog-footer">
+    {% for blog in blogs %}
+        <div id="more-blogs-section">
+            <a href="{% url 'blog:blog_detail' blog.id %}">{{blog.title}}</a>
+        </div>
+        
+    {% endfor %}
+</div> -->
+
+{% endblock %}

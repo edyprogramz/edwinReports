@@ -1,0 +1,56 @@
+#about-page{
+    /* border: 2px solid black; */
+    padding: 20px;
+}
+#about-page #about{
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    width: 60%;
+    margin-left: 20%;
+    /* border-radius: 10%; */
+    margin-bottom: 5%;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal; 
+}
+#about-page #privacy-policy{
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal; 
+}
+#about-page-chapters{
+    /* border: 2px solid black; */
+    margin-left: 20%;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2,49%);
+    column-gap: 1%;
+}
+#about-page-chapters a{
+    text-decoration: none;
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 20px;
+    padding: 20px;
+}
+#about-page-chapters a:hover{
+    background-color: black;
+    color: aquamarine;
+}
+
+@media screen and (max-width: 1000px) {
+    #about-page #about,
+    #about-page #privacy-policy{
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 2%;
+         
+    }
+}

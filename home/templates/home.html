@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %} home {% endblock %}
+{% load static %}
+
+{% block content %}
+<div id="home-page" class="home-html">
+    <!-- <div id="showcase">
+        <div id="showcase-section1-item">
+            <img src="{{lastblog.image.url}}" alt="img">
+        </div>
+        <div id="showcase-section2">
+            <div id="showcase-section2-item1">
+                <img src="{{lastblog.image.url}}" alt="img">
+            </div>
+            <div id="showcase-section2-part2">
+                <div id="showcase-section2-item2">
+                    <img src="{{lastblog.image.url}}" alt="img">
+                </div>
+                <div id="showcase-section2-item3">
+                    <img src="{{lastblog.image.url}}" alt="img">
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+
+    <div id="news-by-industry">
+        <h1>News by Industry</h1>
+        <div id="featured">
+            
+            <div id="flex">
+                
+                {% for category in categories %}
+                    <div id="featured-cags" class="featured-cags" data-category="{{ category }}">
+                        {{category}}
+                    </div>
+                    
+                {% endfor %}
+            </div>
+            <div id="display-results">
+                {% for category in categories %}
+                    {% for blog in blogs %}
+                        {% if category == blog.category %}
+                            <div id="featured-cags-results" class="featured-cags-results" data-category="{{ category }}">
+                                <a href="{% url 'blog:blog_detail' blog.id %}">{{blog.title}}</a>
+                            </div>
+                        {% endif %}
+                                
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <script>
+        // Add click event listener to each "featured-cags" div
+        document.querySelectorAll('.featured-cags').forEach(function(element) {
+            element.addEventListener('click', function() {
+                var category = this.getAttribute('data-category');
+                // Hide all "featured-cags-results" divs
+                document.querySelectorAll('.featured-cags-results').forEach(function(result) {
+                    if (result.getAttribute('data-category') === category) {
+                        result.style.display = 'block';
+                    } else {
+                        result.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+
+    <!-- {% for blog in blogs %}
+    <div id="blog-page-section">
+        {% if blog.image %}
+        <img src="{{blog.image.url}}" alt="{{blog.title}}">
+        {% else %}
+        <img src="{% static 'images/logo.png' %}" alt="{{blog.title}}">
+        {% endif %}
+    </div>
+    {% endfor %} -->
+
+</div>
+{% endblock %}

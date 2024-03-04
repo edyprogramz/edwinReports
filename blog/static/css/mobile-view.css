@@ -1,0 +1,29 @@
+@media screen and (max-width: 1000px) {
+    /* Styles to apply only on screens with a maximum width of 768 pixels */
+    #navbar{
+        /* display: inline-block; */
+        text-align: left;
+        /* border: 2px solid red; */
+        /* width: 1500px; */
+    }
+    #blog-img{
+        /* border: 2px solid red; */
+        height: 150px;
+        width: 100%;
+    }
+    #socials{
+        position: sticky;
+        top: 30%;
+    }
+}
+@media screen and (max-width: 700px) {
+    #blog-img{
+        /* border: 2px solid rgb(30, 255, 0); */
+        height: 100px;
+        width: 100%;
+    }
+    #socials{
+        position: sticky;
+        top: 40%;
+    }
+}
