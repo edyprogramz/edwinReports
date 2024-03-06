@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'blogproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'edyreports',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'NewEdwin@#$',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'PASSWORD': '6eBA6Daa2g-abdadFf3411aGF633Bgef',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '13737',
     }
 }
 
