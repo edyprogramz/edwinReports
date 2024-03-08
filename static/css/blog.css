@@ -45,6 +45,7 @@
     margin-bottom: 20px;
     padding: 20px 15px;
     /* padding-left: 15px; */
+    font-family: "Nunito", sans-serif;
 }
 
 #editors-section{
@@ -68,7 +69,7 @@
 #blog-section #blog-content{
     border-right: 2px solid black;
     padding: 5px 10px;
-    max-width: 50%;
+    max-width: 55%;
     overflow: hidden;
 }
 #blog-section #blog-recommendation{
@@ -127,7 +128,7 @@
 #blog-img img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 #display-results{
